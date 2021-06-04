@@ -1,0 +1,24 @@
+﻿@page "/userinfo"
+@inherits UserInfoBase
+
+<h3>UserInfo</h3>
+
+<p>Ciao, @UserName </p>
+
+<p>Autenticated = @IsAuthenticated</p>
+
+<p>Is Admin = @IsAdmin</p>
+
+<AuthorizeView  Roles="admin">
+    <p>Displayed if the logged in user is in administrator or manager role</p>
+</AuthorizeView>
+
+<AuthorizeView >
+    <Authorized>
+        This content is displayed only if the user is Authorized
+    </Authorized>
+    <NotAuthorized>
+        This content is displayed if the user is Not Authorized
+    </NotAuthorized>
+</AuthorizeView>
+

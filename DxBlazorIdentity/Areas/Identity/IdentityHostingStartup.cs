@@ -19,7 +19,8 @@ namespace DxBlazorIdentity.Areas.Identity
                     options.UseSqlite(
                         context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
 
-                services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                services.AddDefaultIdentity<ApplicationUser> (options => options.SignIn.RequireConfirmedAccount = false)
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }
