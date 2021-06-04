@@ -1,11 +1,12 @@
-<nav class="navbar header-navbar p-0">
-    <button class="navbar-toggler bg-primary d-block" @onclick="OnToggleClick">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="ms-3 fw-bold title pe-4">App Title</div>
-
-    <div class="identityButtons">
-        <LoginDisplay></LoginDisplay>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid d-flex flex-wrap gap-3">
+        <a class="navbar-brand navbar-brand-menu" @onclick="OnToggleClick">
+          <span class="oi oi-menu"></span>
+        </a>
+        <span class="navbar-brand navbar-brand-text mb-0 h1">Navbar</span>
+        <div class="col-md-3 text-end">
+            <LoginDisplay></LoginDisplay>
+        </div>
     </div>
 </nav>
 

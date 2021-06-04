@@ -11,10 +11,12 @@
                 <DxGridLayoutRow Areas="header" Height="auto"></DxGridLayoutRow>
                 <DxGridLayoutRow Areas="sidebar" Height="auto"></DxGridLayoutRow>
                 <DxGridLayoutRow Areas="content" />
+                <DxGridLayoutRow Areas="footer" Height="auto" />
             }
             else {
                 <DxGridLayoutRow Areas="header header" Height="auto" />
                 <DxGridLayoutRow Areas="@(IsSidebarExpanded ? "sidebar content" : "content content")" />
+                <DxGridLayoutRow Areas="footer footer" Height="auto" />
             }
         </Rows>
         <Columns>
@@ -39,9 +41,15 @@
                     @Body
                 </Template>
             </DxGridLayoutItem>
+            <DxGridLayoutItem Area="footer">
+                <Template>
+                    <Footer />
+                </Template>
+            </DxGridLayoutItem>
         </Items>
     </DxGridLayout>
-    </div>
+</div>
+@**@
 
 @code{
     string NavMenuCssClass { get; set; }

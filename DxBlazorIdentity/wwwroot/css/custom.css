@@ -3,8 +3,29 @@
 
 }
 
-.identityButtons
-{
-    text-align:right;
-    border: 1px solid red;
+/*NAVBAR*/
+
+.navbar-brand {
+    text-shadow: none !important;
 }
+    .navbar-brand:hover {
+        color: rgba(0,0,0,.4) !important;
+    }
+
+    .navbar-brand.navbar-brand-text {
+        margin-right: auto;
+    }
+
+    .navbar-brand.navbar-brand-menu:hover {
+        cursor: pointer;
+    }
+
+    .navbar-brand.navbar-brand-menu > span {
+        top: 2px;
+        left: 7px;
+        font-size: 25px;
+    }
+
+        .navbar-brand.navbar-brand-menu > span:hover {
+            color: #446e9b;
+        }
