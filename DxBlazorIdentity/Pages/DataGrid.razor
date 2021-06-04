@@ -1,0 +1,39 @@
+@page "/datagrid"
+
+@using DxBlazorIdentity.Data
+@inject WeatherForecastService ForecastService
+ [Authorize] 
+<h2>DevExpress Data Grid</h2>
+
+<p class="pb-2 pt-2 mw-1100">
+	The DevExpress Data Grid for Blazor allows you to display and manage data via a tabular (rows/columns) UI metaphor.
+	This page uses our Blazor Data Grid component to display weather forecast values.
+</p>
+
+@if (forecasts == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<DxDataGrid Data="@forecasts" PageSize="25"
+			PagerPageSizeSelectorVisible="false"
+			ShowFilterRow="true"
+			CssClass="micDataGrid">
+	 <Columns>
+	  <DxDataGridDateEditColumn Caption="Date" Field="Date" />
+	  <DxDataGridSpinEditColumn Caption="Temperature C" Field="TemperatureC" />
+	  <DxDataGridSpinEditColumn Caption="Temperature F" Field="TemperatureF" />
+	  <DxDataGridColumn Caption="Summary" Field="Summary" />
+	 </Columns>
+	</DxDataGrid>
+}
+
+@code {
+	private WeatherForecast[] forecasts;
+
+	protected override async Task OnInitializedAsync()
+	{
+		forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+	}
+}
