@@ -9,9 +9,6 @@
 
 <p>Is Admin = @IsAdmin</p>
 
-<AuthorizeView  Roles="admin">
-    <p>Displayed if the logged in user is in administrator or manager role</p>
-</AuthorizeView>
 
 <AuthorizeView >
     <Authorized>
@@ -22,3 +19,6 @@
     </NotAuthorized>
 </AuthorizeView>
 
+<AuthorizeView  Roles="admin">
+    <p>Displayed if the logged in user is in administrator or manager role</p>
+</AuthorizeView>

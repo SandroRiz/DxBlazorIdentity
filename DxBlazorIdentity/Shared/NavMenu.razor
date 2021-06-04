@@ -1,14 +1,40 @@
-﻿<div class="sidebar @StateCssClass">
-<DxTreeView AllowSelectNodes="true" CssClass="app-sidebar">
-    <Nodes>
-        <DxTreeViewNode NavigateUrl="./" Text="Overview"></DxTreeViewNode>
-         <DxTreeViewNode NavigateUrl="userinfo" Text="User Info"></DxTreeViewNode>
-        <DxTreeViewNode NavigateUrl="datagrid" Text="Data Grid"></DxTreeViewNode>
-         <DxTreeViewNode NavigateUrl="counter" Text="Admin Counter"></DxTreeViewNode>
-    </Nodes>
-</DxTreeView>
+﻿
+<div class="sidebar @StateCssClass">
+	<DxTreeView AllowSelectNodes="true" CssClass="app-sidebar"
+				Data="@menuItems"
+				TextExpression="@(dataItem => ((MenuItem)dataItem).Text)"
+				NameExpression="@(dataItem => ((MenuItem)dataItem).Name)"
+				NavigateUrlExpression="@(dataItem => ((MenuItem)dataItem).NavigateUrl)">
+
+	</DxTreeView>
 </div>
 
 @code {
-    [Parameter] public string StateCssClass { get; set; }
-}
+
+	[Parameter]
+	public string StateCssClass { get; set; }
+
+	[CascadingParameter]
+	private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+	List<MenuItem> menuItems = new List<MenuItem>();
+
+	protected async override Task OnInitializedAsync()
+	{
+		var authenticationState = await authenticationStateTask;
+
+		menuItems.Add(new MenuItem { Name = "Home", Text = "Home", NavigateUrl = "./" });
+		menuItems.Add(new MenuItem { Name = "UserInfo", Text = "User Info", NavigateUrl = "/userInfo" });
+
+		if (authenticationState.User.Identity.IsAuthenticated)
+		{
+			menuItems.Add(new MenuItem { Name = "DataGrid", Text = "Data Grid", NavigateUrl = "/datagrid" });
+			if (authenticationState.User.IsInRole("admin"))
+			{
+				menuItems.Add(new MenuItem { Name = "Counter", Text = "Admin Counter", NavigateUrl = "/counter" });
+			}
+		}
+
+	}
+
+    }
