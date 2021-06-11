@@ -3,7 +3,6 @@
 
 <h2>Video Management</h2>
 
-
 @if (Videos != null)
 {
 	<DxDataGrid Data="@Videos" ref="@MyGrid"
@@ -15,34 +14,33 @@
 			RowInsertingAsync="@((newValues) => OnRowInserting(newValues))"
 			RowUpdatingAsync="@((updatingDataItem, newValues) => OnRowUpdating(updatingDataItem, newValues))"
 			RowRemovingAsync="@((dataItem) => OnRowDeleting(dataItem))"
-			CssClass="custom-datagrid"
-			>
+			CssClass="custom-datagrid">
 	 <Columns>
 
 	  <DxDataGridCommandColumn NewButtonVisible="true" EditButtonVisible="true" ClearFilterButtonVisible="false" Width="105px">
-	 <CellTemplate>
-        <a title="Edit" class="oi oi-pencil pl-3" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
-  </CellTemplate>
+	   <CellTemplate>
+		<a title="Edit" class="oi oi-pencil pl-3" @onclick="@(() => MyGrid.StartRowEdit(context))" href="javascript:void(0);"></a>
+	   </CellTemplate>
 	  </DxDataGridCommandColumn>
 	  <DxDataGridDateEditColumn Caption="Date" Field="@(nameof(Video.VideoDate))" />
 	  <DxDataGridColumn Caption="Title" Field="@(nameof(Video.Title))" />
-	   <DxDataGridColumn Caption="Description" Field="@(nameof(Video.Description))" Visible="false" EditorVisible="true">
-        <EditTemplate>
-            @{
-                var editingContext = (CellEditContext)context;
-                        var currentCellValue = (string)editingContext.GetEditorValue(nameof(Video.Description));
-            }
-            <DxMemo Text="@currentCellValue" TextChanged="@(x => editingContext.OnChanged(x))" Columns="80" Rows="5" />
-        </EditTemplate>
+	  <DxDataGridColumn Caption="Description" Field="@(nameof(Video.Description))" Visible="false" EditorVisible="true">
+	   <EditTemplate>
+					@{
+					var editingContext = (CellEditContext)context;
+					var currentCellValue = (string)editingContext.GetEditorValue(nameof(Video.Description));
+				}
+				<DxMemo Text="@currentCellValue" TextChanged="@(x => editingContext.OnChanged(x))" Columns="80" Rows="5" />
+			</EditTemplate>
 
-    </DxDataGridColumn>
-	  <DxDataGridColumn Caption="Source" Field="@(nameof(Video.Source))" />
-	  <DxDataGridColumn Caption="Code" Field="@(nameof(Video.VideoCode))" />
-	  <DxDataGridColumn Caption="Download Url" Field="@(nameof(Video.DownloadUrl))" Visible="false" EditorVisible="true" />
-	 <DxDataGridColumn Caption="Thumbnail Url" Field="@(nameof(Video.ThumbnailUrl))"  Visible="false" EditorVisible="true"/>
-	 </Columns>
+		</DxDataGridColumn>
+		<DxDataGridColumn Caption="Source" Field="@(nameof(Video.Source))" />
+		<DxDataGridColumn Caption="Code" Field="@(nameof(Video.VideoCode))" />
+		<DxDataGridColumn Caption="Download Url" Field="@(nameof(Video.DownloadUrl))" Visible="false" EditorVisible="true" />
+		<DxDataGridColumn Caption="Thumbnail Url" Field="@(nameof(Video.ThumbnailUrl))" Visible="false" EditorVisible="true" />
+	</Columns>
 
-	</DxDataGrid>
+</DxDataGrid>
 }
 else
 {
