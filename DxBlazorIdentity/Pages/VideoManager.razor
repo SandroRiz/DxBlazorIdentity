@@ -5,7 +5,7 @@
 
 @if (Videos != null)
 {
-	<DxDataGrid Data="@Videos" ref="@MyGrid"
+	<DxDataGrid Data="@Videos" @ref="@MyGrid"
 			PageSize="25"
 			PagerPageSizeSelectorVisible="false"
 			EditMode="DataGridEditMode.PopupEditForm"
