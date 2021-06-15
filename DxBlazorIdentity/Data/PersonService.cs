@@ -33,7 +33,7 @@ namespace DxBlazorIdentity.Services
         private List<Person> GetFakeList()
         {
             return new List<Person> {
-                new Person { Id = 1, Name = "Foo", LockoutDate = DateTime.Now.Date },
+                new Person { Id = 1, Name = "Foo", LockoutDate = DateTime.Now.Date, Age=33, IsAdult=true, Weight=54.6M },
                 new Person { Id = 2, Name = "Bar", LockoutDate = DateTime.Now.Date.AddDays(1) },
                 new Person { Id = 3, Name = "Baz", LockoutDate = null },
             };

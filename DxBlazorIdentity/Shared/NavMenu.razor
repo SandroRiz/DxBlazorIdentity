@@ -26,6 +26,7 @@
 		menuItems.Add(new MenuItem { Name = "Home", Text = "Home", NavigateUrl = "./" });
 		menuItems.Add(new MenuItem { Name = "UserInfo", Text = "User Info", NavigateUrl = "/userInfo" });
 		menuItems.Add(new MenuItem { Name = "VideoMgr", Text = "Video Manager", NavigateUrl = "/videomanager" });
+		menuItems.Add(new MenuItem { Name = "PersonMgr", Text = "Person Manager", NavigateUrl = "/person/1" });
 		if (authenticationState.User.Identity.IsAuthenticated)
 		{
 			menuItems.Add(new MenuItem { Name = "DataGrid", Text = "Data Grid", NavigateUrl = "/datagrid" });

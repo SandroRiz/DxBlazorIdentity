@@ -6,9 +6,12 @@
 @if (MyPerson != null)
 {
 	<DxFormLayout Data="@MyPerson" CssClass="w-100">
-		<DxFormLayoutItem Field="@nameof(Person.Id)" Caption="Id:" ColSpanMd="12" />
-		<DxFormLayoutItem Field="@nameof(Person.Name)" Caption="Name:" ColSpanMd="12" />
-		<DxFormLayoutItem Field="@nameof(Person.LockoutDate)" Caption="Lockout Date:" ColSpanMd="12" />
+		<DxFormLayoutItem Field="@nameof(Person.Id)" Caption="Id:" ColSpanMd="12" ReadOnly="true"/>
+		<DxFormLayoutItem Field="@nameof(Person.Name)" Caption="Name:" ColSpanMd="12"  ReadOnly="true"/>
+		<DxFormLayoutItem Field="@nameof(Person.LockoutDate)" Caption="Lockout Date:" ColSpanMd="6"  ReadOnly="true"/>
+		<DxFormLayoutItem Field="@nameof(Person.Weight)" Caption="Weight:" ColSpanMd="6"  ReadOnly="true"/>
+		<DxFormLayoutItem Field="@nameof(Person.Age)" Caption="Lockout Date:" ColSpanMd="6"  ReadOnly="true"/>
+		<DxFormLayoutItem Field="@nameof(Person.IsAdult)" Caption="Is Adult" ColSpanMd="6"  ReadOnly="true"/>
     </DxFormLayout>
 }
 else

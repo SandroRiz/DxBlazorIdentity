@@ -13,6 +13,10 @@ namespace DxBlazorIdentity.Data
 
         public DateTimeOffset? LockoutDate { get; set; }
 
+        public int? Age { get; set; }
 
+        public bool? IsAdult { get; set; }
+
+        public decimal? Weight { get; set; }
     }
 }
