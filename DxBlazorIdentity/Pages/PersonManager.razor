@@ -1,0 +1,17 @@
+﻿@page "/person/{id}"
+@inherits PersonManagerBase
+
+<h2>Person Management</h2>
+
+@if (MyPerson != null)
+{
+	<DxFormLayout Data="@MyPerson" CssClass="w-100">
+		<DxFormLayoutItem Field="@nameof(Person.Id)" Caption="Id:" ColSpanMd="12" />
+		<DxFormLayoutItem Field="@nameof(Person.Name)" Caption="Name:" ColSpanMd="12" />
+		<DxFormLayoutItem Field="@nameof(Person.LockoutDate)" Caption="Lockout Date:" ColSpanMd="12" />
+    </DxFormLayout>
+}
+else
+{
+	<p>Loading...</p>
+}
